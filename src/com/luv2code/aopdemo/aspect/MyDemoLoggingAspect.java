@@ -32,7 +32,6 @@ public class MyDemoLoggingAspect {
 			if (obj instanceof Account){
 				Account theAccount = (Account) obj;
 
-
 				System.out.println("===> Account name: " + theAccount.getName());
 				System.out.println("===> Account level: " + theAccount.getLevel());
 			}
