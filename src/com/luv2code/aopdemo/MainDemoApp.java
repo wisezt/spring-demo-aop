@@ -20,7 +20,10 @@ public class MainDemoApp {
 		
 		// call the business method
 		Account myAccount = new Account();
+		myAccount.setName("Ting");
+		myAccount.setLevel("10");
 		theAccountDAO.addAccount(myAccount, true);
+
 		
 		// call the membership business method
 		theMembershipDAO.goToSleep();

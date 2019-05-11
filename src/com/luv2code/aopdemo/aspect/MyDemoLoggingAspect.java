@@ -1,5 +1,6 @@
 package com.luv2code.aopdemo.aspect;
 
+import com.luv2code.aopdemo.Account;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -27,7 +28,16 @@ public class MyDemoLoggingAspect {
 
 		// display method arguments
 		for (Object obj : theJoinPoint.getArgs()){
-			System.out.println("===> this is the argument: " + obj);
+
+			if (obj instanceof Account){
+				Account theAccount = (Account) obj;
+
+
+				System.out.println("===> Account name: " + theAccount.getName());
+				System.out.println("===> Account level: " + theAccount.getLevel());
+			}
+
+
 		}
 
 
