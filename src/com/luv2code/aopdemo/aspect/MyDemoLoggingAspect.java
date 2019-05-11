@@ -16,16 +16,16 @@ public class MyDemoLoggingAspect {
 	//@Before("execution(public * add*(com.luv2code.aopdemo.Account))")
 	
 	// wildcard cannot represent '.' (dot)
-	@Before("execution(public * com.luv2code.aopdemo.dao.*.*(..))")
+	@Before("execution(public * com.luv2code.aopdemo.dao.AccountDAO.*(..))")
 	public void beforeAddAccountAdvice(){
 		
 		System.out.println("\n=======>>> Executing @Before advice on method()");
 	}
 
 
-	@Before("execution(* *(..))")
-	public  void beforeAddAccountAdvice2(){
-		System.out.println("\n=======>>> This is the beforeAddAccountAdvice2!!! ");
-	}
+//	@Before("execution(* *(..))")
+//	public  void beforeAddAccountAdvice2(){
+//		System.out.println("\n=======>>> This is the beforeAddAccountAdvice2!!! ");
+//	}
 
 }

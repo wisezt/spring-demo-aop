@@ -9,6 +9,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @ComponentScan("com.luv2code.aopdemo")
 public class DemoConfig {
 
-	
-	
+
+
 }
