@@ -26,6 +26,13 @@ public class MyDemoLoggingAspect {
 //	@Before("execution(* *(..))")
 //	public  void beforeAddAccountAdvice2(){
 //		System.out.println("\n=======>>> This is the beforeAddAccountAdvice2!!! ");
+
+
 //	}
+
+    	@Before("execution(void *(..))")
+	public  void beforeAddAccountAdviceReturnVoid(){
+		System.out.println("\n=======>>> This is the beforeAddAccountAdviceReturnVoid!!! ");
+	}
 
 }
