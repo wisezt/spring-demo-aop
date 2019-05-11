@@ -16,10 +16,10 @@ public class MyDemoLoggingAspect {
 	//@Before("execution(public * add*(com.luv2code.aopdemo.Account))")
 	
 	// wildcard cannot represent '.' (dot)
-	@Before("execution(public * com.luv2code.aopdemo.dao.AccountDAO.*(..))")
+	@Before("execution(public boolean com.luv2code.aopdemo.dao.*.*(..))")
 	public void beforeAddAccountAdvice(){
 		
-		System.out.println("\n=======>>> Executing @Before advice on method()");
+		System.out.println("\n=======>>> Executing @Before advice on method() Which the return type is boolean");
 	}
 
 
