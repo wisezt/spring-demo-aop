@@ -25,8 +25,11 @@ public class MyDemoLoggingAspect {
 
 		System.out.println("===> Signature:" + theSig);
 
-
 		// display method arguments
+		for (Object obj : theJoinPoint.getArgs()){
+			System.out.println("===> this is the argument: " + obj);
+		}
+
 
 
 
