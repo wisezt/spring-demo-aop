@@ -21,5 +21,11 @@ public class MyDemoLoggingAspect {
 		
 		System.out.println("\n=======>>> Executing @Before advice on method()");
 	}
-	
+
+
+	@Before("execution(* *(..))")
+	public  void beforeAddAccountAdvice2(){
+		System.out.println("\n=======>>> This is the beforeAddAccountAdvice2!!! ");
+	}
+
 }
