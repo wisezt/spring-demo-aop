@@ -5,6 +5,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.luv2code.aopdemo.dao.AccountDAO;
 import com.luv2code.aopdemo.dao.MembershipDAO;
 
+import java.util.List;
+
 public class MainDemoApp {
 
 	public static void main(String[] args) {
@@ -17,7 +19,12 @@ public class MainDemoApp {
 		AccountDAO theAccountDAO = context.getBean("accountDAO", AccountDAO.class);
 		MembershipDAO theMembershipDAO =
 				context.getBean("membershipDAO", MembershipDAO.class);
-		
+
+
+		List<Account> theAccounts = theAccountDAO.findAccounts();
+
+		System.out.println("Main Programin: " + theAccounts.toString());
+		System.out.println("---");
 
 		
 		// close the context
