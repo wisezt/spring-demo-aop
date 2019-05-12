@@ -49,6 +49,7 @@ public class MyDemoLoggingAspect {
     @AfterThrowing(pointcut = "pointcutReturnListAccounts()", throwing = "theExc")
     public void afterThrowingfindAccounts(JoinPoint theJoinPoint, Throwable theExc){
         System.out.println("===>@AfterThrowing: " + theExc.getMessage());
+        System.out.println("===>@AfterThrowing, the exception: " + theExc);
     }
 
 
