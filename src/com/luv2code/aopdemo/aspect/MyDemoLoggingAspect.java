@@ -36,8 +36,15 @@ public class MyDemoLoggingAspect {
     @AfterReturning(pointcut = "pointcutReturnListAccounts()", returning = "result")
     public void afterReturningListAccounts(JoinPoint theJoinPoint, List<Account> result){
 	    System.out.println("===>AfterReturning name: afterReturningListAccounts");
-        System.out.println("JontPoint: " + theJoinPoint.getArgs());
-        System.out.println("Reuslt: " + result);
+        System.out.println("JointPoint: " + theJoinPoint.getArgs());
+        System.out.println("Before Modify Result: " + result);
+
+        Account temp1 = result.get(0);
+        temp1.setLevel("10");
+        temp1.setName("Ting");
+
+        System.out.println("After Modify Result: " + result);
+
         System.out.println("===>AfterReturning END");
 
     }
