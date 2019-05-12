@@ -10,6 +10,8 @@ import java.util.List;
 @Component()
 public class AccountDAO {
 
+	boolean testBoolean = true;
+
 	public void addAccount(Account theAccount, boolean vipFlag) {
 
 		
@@ -36,7 +38,9 @@ public class AccountDAO {
 		theAccounts.add(temp1);
 		theAccounts.add(temp2);
 		theAccounts.add(temp3);
-
+		if (testBoolean) {
+			throw new RuntimeException("I am the RuntimeException in findAccount ");
+		}
 		return theAccounts;
 	}
 	

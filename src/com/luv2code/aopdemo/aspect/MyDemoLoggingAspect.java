@@ -2,10 +2,7 @@ package com.luv2code.aopdemo.aspect;
 
 import com.luv2code.aopdemo.Account;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
@@ -34,7 +31,7 @@ public class MyDemoLoggingAspect {
     }
 
     @AfterReturning(pointcut = "pointcutReturnListAccounts()", returning = "result")
-    public void afterReturningListAccounts(JoinPoint theJoinPoint, List<Account> result){
+    public void afterReturningfindAccounts(JoinPoint theJoinPoint, List<Account> result){
 	    System.out.println("===>AfterReturning name: afterReturningListAccounts");
         System.out.println("JointPoint: " + theJoinPoint.getArgs());
         System.out.println("Before Modify Result: " + result);
@@ -47,6 +44,11 @@ public class MyDemoLoggingAspect {
 
         System.out.println("===>AfterReturning END");
 
+    }
+
+    @AfterThrowing(pointcut = "pointcutReturnListAccounts()", throwing = "theExc")
+    public void afterThrowingfindAccounts(JoinPoint theJoinPoint, Throwable theExc){
+        System.out.println("===>@AfterThrowing: " + theExc.getMessage());
     }
 
 
