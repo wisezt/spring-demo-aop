@@ -22,22 +22,22 @@ public class MyDemoLoggingAspect {
 		
 
 		// display the method signature
-		MethodSignature theSig = (MethodSignature) theJoinPoint.getSignature();
-
-		System.out.println("===> Signature:" + theSig);
+//		MethodSignature theSig = (MethodSignature) theJoinPoint.getSignature();
+//
+//		System.out.println("===> Signature:" + theSig);
 
 		// display method arguments
-		for (Object obj : theJoinPoint.getArgs()){
-
-			if (obj instanceof Account){
-				Account theAccount = (Account) obj;
-
-				System.out.println("===> Account name: " + theAccount.getName());
-				System.out.println("===> Account level: " + theAccount.getLevel());
-			}
-
-
-		}
+//		for (Object obj : theJoinPoint.getArgs()){
+//
+//			if (obj instanceof Account){
+//				Account theAccount = (Account) obj;
+//
+//				System.out.println("===> Account name: " + theAccount.getName());
+//				System.out.println("===> Account level: " + theAccount.getLevel());
+//			}
+//
+//
+//		}
 
 
 
