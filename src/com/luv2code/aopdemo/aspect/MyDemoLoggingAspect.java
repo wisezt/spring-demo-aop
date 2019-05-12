@@ -53,5 +53,11 @@ public class MyDemoLoggingAspect {
     }
 
 
+    @After("execution(* com.luv2code.aopdemo.dao.AccountDAO.*(..))")
+    public void afterfindAccounts(JoinPoint theJoinPoint){
+
+        System.out.println("===> @After: " + theJoinPoint.getSignature());
+    }
+
 
 }
