@@ -2,6 +2,7 @@ package com.luv2code.aopdemo.aspect;
 
 import com.luv2code.aopdemo.Account;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
@@ -46,18 +47,36 @@ public class MyDemoLoggingAspect {
 
     }
 
-    @AfterThrowing(pointcut = "pointcutReturnListAccounts()", throwing = "theExc")
-    public void afterThrowingfindAccounts(JoinPoint theJoinPoint, Throwable theExc){
-        System.out.println("===>@AfterThrowing: " + theExc.getMessage());
-        System.out.println("===>@AfterThrowing, the exception: " + theExc);
-    }
+//    @AfterThrowing(pointcut = "pointcutReturnListAccounts()", throwing = "theExc")
+//    public void afterThrowingfindAccounts(JoinPoint theJoinPoint, Throwable theExc){
+//        System.out.println("===>@AfterThrowing: " + theExc.getMessage());
+//        System.out.println("===>@AfterThrowing, the exception: " + theExc);
+//    }
 
 
-    @After("execution(* com.luv2code.aopdemo.dao.AccountDAO.*(..))")
+    @After("pointcutReturnListAccounts()")
     public void afterfindAccounts(JoinPoint theJoinPoint){
 
         System.out.println("===> @After: " + theJoinPoint.getSignature());
     }
+
+    @Around("pointcutReturnListAccounts()")
+    public Object aroundFindAccounts(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable{
+        long begin = System.currentTimeMillis();
+
+        Object result = theProceedingJoinPoint.proceed();
+
+        long end = System.currentTimeMillis();
+
+        long duration = end - begin;
+        System.out.println("===> Duration: " + duration);
+
+        return result;
+
+
+
+    }
+
 
 
 }

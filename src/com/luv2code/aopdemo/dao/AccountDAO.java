@@ -38,9 +38,9 @@ public class AccountDAO {
 		theAccounts.add(temp1);
 		theAccounts.add(temp2);
 		theAccounts.add(temp3);
-		if (testBoolean) {
-			throw new RuntimeException("I am the RuntimeException in findAccount ");
-		}
+//		if (testBoolean) {
+//			throw new RuntimeException("I am the RuntimeException in findAccount ");
+//		}
 		return theAccounts;
 	}
 	
