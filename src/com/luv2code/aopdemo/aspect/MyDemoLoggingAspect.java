@@ -28,7 +28,7 @@ public class MyDemoLoggingAspect {
 //	}
 
     // Add the pointcut for returning the list of Accounts
-	@Pointcut("execution(* com.luv2code.aopdemo.MainDemoApp.*(..))")
+	@Pointcut("execution(* com.luv2code.aopdemo.dao.AccountDAO.*(..))")
     public void pointcutReturnListAccounts(){
 
     }
