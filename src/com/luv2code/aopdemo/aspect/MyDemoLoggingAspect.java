@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,8 +15,9 @@ import java.util.List;
 @Aspect
 public class MyDemoLoggingAspect {
 
-	@Pointcut("execution(* *(..))")
-	public void pointCut01(){}
+    @Pointcut("execution(* *(..))")
+    public void pointCut01() {
+    }
 
 
 //	@Before("pointCut01()")
@@ -26,14 +28,14 @@ public class MyDemoLoggingAspect {
 //	}
 
     // Add the pointcut for returning the list of Accounts
-	@Pointcut("execution(* com.luv2code.aopdemo.dao.AccountDAO.*(..))")
-    public void pointcutReturnListAccounts(){
+    @Pointcut("execution(* com.luv2code.aopdemo.dao.AccountDAO.*(..))")
+    public void pointcutReturnListAccounts() {
 
     }
 
     @AfterReturning(pointcut = "pointcutReturnListAccounts()", returning = "result")
-    public void afterReturningfindAccounts(JoinPoint theJoinPoint, List<Account> result){
-	    System.out.println("===>AfterReturning name: afterReturningListAccounts");
+    public void afterReturningfindAccounts(JoinPoint theJoinPoint, List<Account> result) {
+        System.out.println("===>AfterReturning name: afterReturningListAccounts");
         System.out.println("JointPoint: " + theJoinPoint.getArgs());
         System.out.println("Before Modify Result: " + result);
 
@@ -55,28 +57,31 @@ public class MyDemoLoggingAspect {
 
 
     @After("pointcutReturnListAccounts()")
-    public void afterfindAccounts(JoinPoint theJoinPoint){
+    public void afterfindAccounts(JoinPoint theJoinPoint) {
 
         System.out.println("===> @After: " + theJoinPoint.getSignature());
     }
 
     @Around("pointcutReturnListAccounts()")
-    public Object aroundFindAccounts(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable{
-        long begin = System.currentTimeMillis();
+    public Object aroundFindAccounts(ProceedingJoinPoint theProceedingJoinPoint) {
+     //   long begin = System.currentTimeMillis();
 
-        Object result = theProceedingJoinPoint.proceed();
-
+        Object result = null;
+        try {
+            result = theProceedingJoinPoint.proceed();
+        } catch (Throwable theExc) {
+            System.out.println("===>@Around: Exception:" + theExc);
+            result= "===> @Around get the Exception";
+        }
         long end = System.currentTimeMillis();
 
-        long duration = end - begin;
-        System.out.println("===> Duration: " + duration);
+      //  long duration = end - begin;
+   //     System.out.println("===> Duration: " + duration);
 
         return result;
 
 
-
     }
-
 
 
 }

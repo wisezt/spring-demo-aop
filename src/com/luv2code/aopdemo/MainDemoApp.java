@@ -20,18 +20,9 @@ public class MainDemoApp {
         MembershipDAO theMembershipDAO =
                 context.getBean("membershipDAO", MembershipDAO.class);
 
-        try {
-            List<Account> theAccounts = theAccountDAO.findAccounts();
-        } catch (Exception
-                 theExc
 
-        ){
-            System.out.println("===> get an Exception");
-        }
+           System.out.println( theAccountDAO.findAccounts());
 
-
-//        System.out.println("Main Programin: " + theAccounts.toString());
-//        System.out.println("---");
 
 
         // close the context

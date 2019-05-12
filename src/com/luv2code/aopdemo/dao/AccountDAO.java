@@ -24,8 +24,9 @@ public class AccountDAO {
 		
 	}
 
-	public List<Account> findAccounts(){
+	public String findAccounts(){
 		List<Account> theAccounts = new ArrayList<>();
+		String result = "All good!";
 
 		// creawte sample accounts
 		Account temp1 = new Account("John", "1");
@@ -38,10 +39,10 @@ public class AccountDAO {
 		theAccounts.add(temp1);
 		theAccounts.add(temp2);
 		theAccounts.add(temp3);
-//		if (testBoolean) {
-//			throw new RuntimeException("I am the RuntimeException in findAccount ");
-//		}
-		return theAccounts;
+		if (testBoolean) {
+			throw new RuntimeException("I am the RuntimeException in findAccount ");
+		}
+		return result;
 	}
 	
 }
